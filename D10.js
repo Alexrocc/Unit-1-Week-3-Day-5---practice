@@ -182,23 +182,43 @@ rollTheDices(3);
 Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 // */
 
-// const howManyDays = function (date) {
-//   const todayDate = new Date(
-//     date.getFullYear(),
-//     date.getMonth(),
-//     date.getDay()
-//   );
-//   console.log(todayDate);
-// };
-// howManyDays();
+const testDate = new Date("October 12, 2023");
+
+const howManyDays = function (date) {
+  const today = new Date();
+  const todayYear = today.getFullYear();
+  const todayMonth = today.getMonth();
+  const todayDay = today.getDate();
+  const todayDate = new Date(todayYear, todayMonth, todayDay);
+
+  const compareDate = new Date(date);
+  const differenceInTime = todayDate.getTime() - compareDate.getTime();
+  const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+
+  console.log("The difference in days with today is: ", differenceInDays);
+};
+howManyDays(testDate);
 
 /* ESERCIZIO 10
     Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
     */
+const today = new Date();
 
-// const isTodayMyBirthday = function () {
-//   const myBirthday =
-// }
+const isTodayMyBirthday = function (date) {
+  const myBirthday = new Date("April 19, 1998");
+  const myBirthdayMonth = myBirthday.getMonth() + 1;
+  const myBirthdayDay = myBirthday.getDate();
+
+  const currentMonth = date.getMonth() + 1;
+  const currentDay = date.getDate();
+
+  if (currentDay === myBirthdayDay && currentMonth === myBirthdayMonth) {
+    console.log(true);
+  } else {
+    console.log(false);
+  }
+};
+isTodayMyBirthday(today);
 // Arrays & Oggetti
 
 // NOTA: l'array "movies" usato in alcuni esercizi è definito alla fine di questo file
@@ -210,7 +230,6 @@ Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e 
 
 const testObject = { nome: "Alessio", cognome: "Rocchigiani" };
 const deleteProp = function (obj, str) {
-  console.log(str);
   if (Object.hasOwn(obj, str) === true) {
     delete obj[str];
   }
@@ -468,7 +487,6 @@ const printTableData = function () {
     console.log(tData.innerText);
   });
 };
-printTableData();
 
 /* ESERCIZIO 23
 Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
@@ -478,7 +496,6 @@ const changeBckgrColor = function () {
   const anchors = document.querySelectorAll("td > a");
   anchors.forEach((a) => (a.style.backgroundColor = "red"));
 };
-changeBckgrColor();
 
 /* ESERCIZIO 24
 Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
@@ -489,7 +506,6 @@ const addListItem = function () {
   const newLi = document.createElement("li");
   myList.appendChild(newLi);
 };
-addListItem();
 
 /* ESERCIZIO 25
 Scrivi una funzione per svuotare la lista non ordinata con id "myList".
@@ -501,7 +517,6 @@ const blankList = function () {
     li.innerText = "";
   });
 };
-blankList();
 
 /* ESERCIZIO 26
 Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
@@ -514,7 +529,6 @@ const addClassToTr = function () {
     tr.classList.add("test");
   });
 };
-addClassToTr();
 
 // [EXTRA] JS Avanzato
 
