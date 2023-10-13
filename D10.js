@@ -118,19 +118,10 @@ deleteOne("ciao amico", false);
 */
 
 const onlyLetters = function (str) {
-  const strArray = str.split("");
-  const newStr = [];
-  console.log(strArray);
-
-  for (let i = 0; i < strArray.length; i++) {
-    if (!isNaN(strArray[i]) === false) {
-      newStr.push(strArray[i]);
-    }
-  }
-  const filteredString = newStr.join("");
+  const filteredString = str.replace(/[0-9]/g, "");
   console.log(filteredString);
 };
-onlyLetters("ciao amico 4");
+onlyLetters("ciao4 ami2co 4");
 
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
@@ -216,6 +207,7 @@ Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e 
      Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto fornito dopo aver eliminato
      in esso la proprietà chiamata come la stringa passata come secondo parametro.
      */
+
 const testObject = { nome: "Alessio", cognome: "Rocchigiani" };
 const deleteProp = function (obj, str) {
   console.log(str);
@@ -225,6 +217,7 @@ const deleteProp = function (obj, str) {
   console.log(obj);
 };
 deleteProp(testObject, "nome");
+
 // Array "movies" has been moved for convenience
 const movies = [
   {
@@ -441,7 +434,7 @@ const removeIndex = function (num) {
     console.log("We have only 14 movies! Try with a number from 0 to 13!");
   } else {
     const removedMovie = movies.splice(num, 1);
-    console.log(movie);
+    console.log(movies);
   }
 };
 removeIndex(11);
