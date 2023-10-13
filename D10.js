@@ -117,9 +117,33 @@ deleteOne("ciao amico", false);
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
 
+// const onlyLetters = function (str) {
+//   const filteredString = str.replace(/[0-9]/g, "");
+//   console.log(filteredString);
+// };
+// onlyLetters("ciao4 ami2co 4");
+
 const onlyLetters = function (str) {
-  const filteredString = str.replace(/[0-9]/g, "");
-  console.log(filteredString);
+  let filteredString = "";
+  for (let i = 0; i < str.length; i++) {
+    const currentLetter = str[i];
+    if (
+      currentLetter !== "0" &&
+      currentLetter !== "1" &&
+      currentLetter !== "2" &&
+      currentLetter !== "3" &&
+      currentLetter !== "4" &&
+      currentLetter !== "5" &&
+      currentLetter !== "6" &&
+      currentLetter !== "7" &&
+      currentLetter !== "8" &&
+      currentLetter !== "9"
+    ) {
+      filteredString += currentLetter;
+    }
+  }
+  let newString = filteredString.trim();
+  console.log(newString);
 };
 onlyLetters("ciao4 ami2co 4");
 
@@ -545,9 +569,20 @@ halfTree(3)
 */
 
 const halfTree = function (num) {
-  for (let i = 0; i <= num; i++) {}
+  for (let i = 0; i <= num; i++) {
+    let star = "";
+    let space = num - i;
+
+    if (i === 0) {
+      star += " ".repeat(space + 1) + "\n";
+    }
+    star += " ".repeat(space + 1);
+    let repeats = i + 1;
+    star += "*".repeat(repeats);
+    console.log(star);
+  }
 };
-halfTree();
+halfTree(5);
 
 /* ESERCIZIO 28
 Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
