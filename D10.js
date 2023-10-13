@@ -180,9 +180,7 @@ const rollTheDices = function (num) {
   for (i = 0; i < num; i++) {
     rolls.push(dice());
   }
-
   newobj.values = rolls;
-
   const sumValue = rolls.reduce((total, amount) => total + amount);
   newobj.sum = sumValue;
   console.log(newobj);
@@ -222,7 +220,7 @@ const testObject = { nome: "Alessio", cognome: "Rocchigiani" };
 const deleteProp = function (obj, str) {
   console.log(str);
   if (Object.hasOwn(obj, str) === true) {
-    delete obj.str;
+    delete obj[str];
   }
   console.log(obj);
 };
@@ -439,14 +437,14 @@ Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e
 */
 
 const removeIndex = function (num) {
-  if (num > 13) {
+  if (num > 14) {
     console.log("We have only 14 movies! Try with a number from 0 to 13!");
   } else {
     const removedMovie = movies.splice(num, 1);
-    console.log(movies);
+    console.log(movie);
   }
 };
-removeIndex();
+removeIndex(11);
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
@@ -472,27 +470,58 @@ Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto 
 
 const printTableData = function () {
   const tableDatas = document.getElementsByTagName("td");
-  console.log(tableDatas);
-  tableDatas.forEach((tData) => {
+  const tableDatasArr = Array.from(tableDatas);
+  tableDatasArr.forEach((tData) => {
     console.log(tData.innerText);
   });
 };
+printTableData();
 
 /* ESERCIZIO 23
 Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
 
+const changeBckgrColor = function () {
+  const anchors = document.querySelectorAll("td > a");
+  anchors.forEach((a) => (a.style.backgroundColor = "red"));
+};
+changeBckgrColor();
+
 /* ESERCIZIO 24
 Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+const addListItem = function () {
+  const myList = document.getElementById("myList");
+
+  const newLi = document.createElement("li");
+  myList.appendChild(newLi);
+};
+addListItem();
 
 /* ESERCIZIO 25
 Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
+const blankList = function () {
+  const myListItems = document.querySelectorAll("#myList > li");
+  console.log(myListItems);
+  myListItems.forEach((li) => {
+    li.innerText = "";
+  });
+};
+blankList();
 
 /* ESERCIZIO 26
 Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+const addClassToTr = function () {
+  const allTrs = document.getElementsByTagName("tr");
+  const allTrsArray = Array.from(allTrs);
+  allTrsArray.forEach((tr) => {
+    tr.classList.add("test");
+  });
+};
+addClassToTr();
 
 // [EXTRA] JS Avanzato
 
