@@ -168,7 +168,7 @@ whatDayIsIt();
 const rollTheDices = function (num) {
   const rolls = [];
   const newobj = {};
-  for (i = 0; i < num; i++) {
+  for (let i = 0; i < num; i++) {
     rolls.push(dice());
   }
   newobj.values = rolls;
@@ -414,7 +414,7 @@ Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come paramet
 
 const searchByTitle = function (str) {
   const filteredMovies = [];
-  for (i = 0; i < movies.length; i++) {
+  for (let i = 0; i < movies.length; i++) {
     if (movies[i].Title.includes(str)) {
       filteredMovies.push(movies[i]);
     }
@@ -433,7 +433,7 @@ const searchAndDivide = function (str) {
     match: [],
     unmatch: [],
   };
-  for (i = 0; i < movies.length; i++) {
+  for (let i = 0; i < movies.length; i++) {
     if (movies[i].Title.includes(str)) {
       matchObj.match.push(movies[i]);
     } else {
@@ -543,6 +543,11 @@ halfTree(3)
 ***
 
 */
+
+const halfTree = function (num) {
+  for (let i = 0; i <= num; i++) {}
+};
+halfTree();
 
 /* ESERCIZIO 28
 Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
