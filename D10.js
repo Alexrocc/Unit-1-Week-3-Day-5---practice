@@ -63,8 +63,9 @@ me.skills.pop();
 */
 
 function dice() {
-  let diceRoll = Math.floor(Math.random() * (7 - 1) * 1);
-  console.log(diceRoll);
+  let diceRoll = Math.floor(Math.random() * (7 - 1) + 1);
+
+  return diceRoll;
 }
 dice();
 
@@ -173,16 +174,42 @@ whatDayIsIt();
   }
 */
 
-const rollTheDices = function () {};
+const rollTheDices = function (num) {
+  const rolls = [];
+  const newobj = {};
+  for (i = 0; i < num; i++) {
+    rolls.push(dice());
+  }
+
+  newobj.values = rolls;
+
+  const sumValue = rolls.reduce((total, amount) => total + amount);
+  newobj.sum = sumValue;
+  console.log(newobj);
+};
+rollTheDices(3);
 
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
-*/
+// */
+
+// const howManyDays = function (date) {
+//   const todayDate = new Date(
+//     date.getFullYear(),
+//     date.getMonth(),
+//     date.getDay()
+//   );
+//   console.log(todayDate);
+// };
+// howManyDays();
 
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
 
+// const isTodayMyBirthday = function () {
+//   const myBirthday =
+// }
 // Arrays & Oggetti
 
 // NOTA: l'array "movies" usato in alcuni esercizi è definito alla fine di questo file
